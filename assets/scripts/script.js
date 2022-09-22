@@ -114,20 +114,6 @@ if (characters === "") {
 
 
 
-function validate(x){
-  let x = window.prompt ("Would you like lowercase characters?");
-    x = x.toUpperCase();
-    if ((x != "Y") && (x != "N")) {
-      window.alert("please only use Y or N for selections");
-      return;
-    } else if (x === "Y"){
-      x = caseLower;
-    } else {
-      characters = "";
-    }
-    return characters;
-  }
-
 
 
 
