@@ -6,6 +6,7 @@ const caseSpecials = "!@#$%^&*()";
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+
 // Write password to the #password input
 function writePassword() {
   let newPass = generatePassword();
@@ -107,7 +108,7 @@ if (characters === "") {
   window.alert("At least one option must be selected");
   return;
   }
-
+return characters;
   }
 
 
