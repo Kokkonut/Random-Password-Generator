@@ -24,24 +24,37 @@ generateBtn.addEventListener("click", writePassword);
  function generatePassword() {
   
     let passwordLength = passLength();
-    let chars  = passChars() 
+    let chars  = passChars();
     let password = "";
-    
-    for (let i = 0; i <= passwordLength; i++) {
-   let randomNumber = Math.floor(Math.random() * chars.length);
-        password += chars.substring(randomNumber, randomNumber +1);
+
+    if (chars == null) {
+      return;
+    }
+  
+      for (let i = 0; i <= passwordLength; i++) {
+      let randomNumber = Math.floor(Math.random() * chars.length);
+          password += chars.substring(randomNumber, randomNumber +1);
   }
-        return password;
+      return password;
+
         
  }
 
 // Alert window to set password length.
  function passLength() {
   let passwordlength = window.prompt("How many characters would you like in your password?");
-    if(passwordlength < 8 || passwordlength > 128) {
+  // this is supposed to cancel the function on a blank imput, but i cant work it out
+    if (!passLength) {
+      return;
+    };
+  
+  if(passwordlength < 8 || passwordlength > 128) {
       passwordlength = window.prompt("Please enter a value from 8 to 128")
-    }
+  };
+
   return passwordlength;
+
+
 }
 
 // returns list of characters to generate password with
@@ -72,7 +85,7 @@ function passChars() {
       characters = characters.concat(caseUpper);
     } else {
       characters = characters;
-    }
+    };
 
 
 
@@ -87,7 +100,7 @@ function passChars() {
       characters = characters.concat(caseNumbers);
     } else {
       characters = characters;
-    }
+    };
  
 
     // selects is special characters will be used 
@@ -101,15 +114,16 @@ function passChars() {
       characters = characters.concat(caseSpecials);
     } else {
       characters = characters;
-    }
+    };
    
 // if no options selected ends function
 if (characters === "") {
   window.alert("At least one option must be selected");
   return;
-  }
-return characters;
-  }
+  } else {
+    return characters;
+  };
+  };
 
 
 
